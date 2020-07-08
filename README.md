@@ -5,7 +5,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/appstract/Twikey-php-client/master.svg?style=flat-square)](https://travis-ci.org/appstract/Twikey-php-client)
 
-PHP Client for the [Twikey API](https://Twikey.nl/Twikey-rest-api/)
+PHP Client for the [Twikey API](https://twikey.com)
 
 ## Installation
 
