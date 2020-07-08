@@ -1,6 +1,6 @@
 <?php
 
-namespace Appstract\Pakketpartner\Exceptions;
+namespace Appstract\Twikey\Exceptions;
 
 use Exception;
 

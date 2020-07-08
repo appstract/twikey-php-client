@@ -1,8 +1,8 @@
 <?php
 
-namespace Appstract\Pakketpartner;
+namespace Appstract\Twikey;
 
-use Appstract\Pakketpartner\Exceptions\ApiException;
+use Appstract\Twikey\Exceptions\ApiException;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
@@ -14,7 +14,7 @@ class Connection
     /**
      * @var string
      */
-    private $apiUrl = 'https://dashboard.pakketpartner.nl/api/v1';
+    private $apiUrl;
 
     /**
      * @var string
@@ -25,6 +25,11 @@ class Connection
      * @var Client
      */
     private $client;
+
+
+    public function setApiUrl($url) {
+        $this->apiUrl = $url;
+    }
 
     /**
      * @param mixed $apiToken

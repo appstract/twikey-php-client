@@ -1,6 +1,6 @@
 <?php
 
-namespace Appstract\Pakketpartner;
+namespace Appstract\Twikey;
 
 use Jenssegers\Model\Model;
 

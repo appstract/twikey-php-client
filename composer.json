@@ -1,16 +1,16 @@
 {
-    "name": "appstract/pakketpartner-php-client",
-    "description": "PHP Client for the Pakketpartner API",
+    "name": "appstract/twikey-php-client",
+    "description": "PHP Client for the Twikey API",
     "keywords": [
         "appstract",
         "pakketpartner-php-client"
     ],
-    "homepage": "https://github.com/appstract/pakketpartner-php-client",
+    "homepage": "https://github.com/appstract/twikey-php-client",
     "license": "MIT",
     "authors": [
         {
-            "name": "Gijs Jorissen",
-            "email": "gijs@appstract.nl",
+            "name": "Olav van Schie",
+            "email": "olav@appstract.nl",
             "homepage": "https://appstract.nl",
             "role": "Developer"
         }
