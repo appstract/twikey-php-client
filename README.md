@@ -1,18 +1,18 @@
-# Pakketpartner PHP Client
+# Twikey PHP Client
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/appstract/pakketpartner-php-client.svg?style=flat-square)](https://packagist.org/packages/appstract/pakketpartner-php-client)
-[![Total Downloads](https://img.shields.io/packagist/dt/appstract/pakketpartner-php-client.svg?style=flat-square)](https://packagist.org/packages/appstract/pakketpartner-php-client)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/appstract/Twikey-php-client.svg?style=flat-square)](https://packagist.org/packages/appstract/Twikey-php-client)
+[![Total Downloads](https://img.shields.io/packagist/dt/appstract/Twikey-php-client.svg?style=flat-square)](https://packagist.org/packages/appstract/Twikey-php-client)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/appstract/pakketpartner-php-client/master.svg?style=flat-square)](https://travis-ci.org/appstract/pakketpartner-php-client)
+[![Build Status](https://img.shields.io/travis/appstract/Twikey-php-client/master.svg?style=flat-square)](https://travis-ci.org/appstract/Twikey-php-client)
 
-PHP Client for the [Pakketpartner API](https://pakketpartner.nl/pakketpartner-rest-api/)
+PHP Client for the [Twikey API](https://Twikey.nl/Twikey-rest-api/)
 
 ## Installation
 
 You can install the package via composer:
 
 ``` bash
-composer require appstract/pakketpartner-php-client
+composer require appstract/Twikey-php-client
 ```
 
 ## Usage
@@ -20,26 +20,26 @@ composer require appstract/pakketpartner-php-client
 Setup the connection.
 
 ``` php
-use Appstract\Pakketpartner\Connection;
-use Appstract\Pakketpartner\Pakketpartner;
+use Appstract\Twikey\Connection;
+use Appstract\Twikey\Twikey;
 
 $connection = new Connection();
 
 $connection->setApiToken('yourapitoken');
 
-$pakketpartner = new Pakketpartner($connection);
+$Twikey = new Twikey($connection);
 ```
 
 Use a method to handle entities.
 
 ```php
-use Appstract\Pakketpartner\Pakketpartner;
+use Appstract\Twikey\Twikey;
 
-$shipment = Pakketpartner::shipment();
+$mandate = Twikey::shipment();
 
-$shipment->order_reference = 'Appstract';
+$mandate->reference = 'Appstract';
 
-$shipment->save();
+$mandate->save();
 ```
 
 ## Testing
@@ -50,7 +50,7 @@ composer test
 
 ## Contributing
 
-Contributions are welcome, [thanks to y'all](https://github.com/appstract/pakketpartner-php-client/graphs/contributors) :)
+Contributions are welcome, [thanks to y'all](https://github.com/appstract/Twikey-php-client/graphs/contributors) :)
 
 ## About Appstract
 

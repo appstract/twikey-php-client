@@ -3,7 +3,7 @@
     "description": "PHP Client for the Twikey API",
     "keywords": [
         "appstract",
-        "pakketpartner-php-client"
+        "twikey-php-client"
     ],
     "homepage": "https://github.com/appstract/twikey-php-client",
     "license": "MIT",
@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Appstract\\Pakketpartner\\": "src"
+            "Appstract\\Twikey\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Appstract\\Pakketpartner\\Test\\": "tests"
+            "Appstract\\Twikey\\Test\\": "tests"
         }
     },
     "scripts": {
