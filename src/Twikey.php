@@ -2,8 +2,6 @@
 
 namespace Appstract\Twikey;
 
-use Appstract\Twikey\Entities;
-
 class Twikey
 {
     protected $connection;
@@ -15,7 +13,7 @@ class Twikey
 
     public function __call($entity, $attributes = [])
     {
-        $class = "Entities\\".$entity;
+        $class = "Appstract\Twikey\Entities\\".ucfirst($entity);
 
         return new $class($this->connection, $attributes);
     }
