@@ -21,6 +21,9 @@ class Connection
      */
     private $apiToken;
 
+
+    private $authorizationToken = '';
+
     /**
      * @var Client
      */
@@ -39,6 +42,30 @@ class Connection
         $this->apiToken = $apiToken;
     }
 
+    /**
+     * @param mixed $authorizationToken
+     */
+    public function setAuthorizationToken($authorizationToken)
+    {
+        $this->authorizationToken = $authorizationToken;
+    }
+
+    public function login()
+    {
+        $request = $this->createRequest(
+            'POST', $this->formatUrl('', 'POST'), ['apiToken' => $this->apiToken]
+        );
+
+        $response = $this->parseResponse(
+            $this->client()->send($request)
+        );
+
+        if (isset($response['Authorization'])) {
+            $this->authorizationToken = $response['Authorization'];
+        } else {
+            throw new ApiException('Failed to login');
+        }
+    }
     /**
      * [get description].
      * @param  [type]  $url      [description]
@@ -116,7 +143,6 @@ class Connection
         $this->client = new Client([
             'http_errors' => true,
             'expect' => false,
-            'auth' => [$this->apiToken, ''],
         ]);
 
         return $this->client;
@@ -132,7 +158,8 @@ class Connection
         // Add default json headers to the request
         $headers = array_merge($headers, [
             'Accept' => 'application/json',
-            'Content-Type' => 'application/json',
+            'Content-Type' => 'application/x-www-form-urlencoded',
+            'Authorization' => $this->authorizationToken
         ]);
 
         // Create param string
@@ -141,7 +168,7 @@ class Connection
         }
 
         // Create the request
-        return new Request($method, $endpoint, $headers, json_encode($body));
+        return new Request($method, $endpoint, $headers, http_build_query($body));
     }
 
     /**
@@ -165,9 +192,7 @@ class Connection
         try {
             Psr7\rewind_body($response);
 
-            $json = json_decode($response->getBody()->getContents(), true);
-
-            return data_get($json, 'data');
+            return json_decode($response->getBody()->getContents(), true);
         } catch (\RuntimeException $e) {
             throw new ApiException($e->getMessage());
         }
