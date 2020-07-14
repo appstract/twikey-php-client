@@ -168,7 +168,7 @@ class Connection
         }
 
         // Create the request
-        return new Request($method, $endpoint, $headers, http_build_query($body));
+        return new Request($method, $endpoint, $headers, $body ? http_build_query($body) : null);
     }
 
     /**
