@@ -27,26 +27,52 @@ $connection = new Connection();
 
 $connection->setApiToken('yourapitoken');
 
-$Twikey = new Twikey($connection);
+$twikey = new Twikey($connection);
 ```
 
-Use a method to handle entities.
+Create an invitation:
 
 ```php
-use Appstract\Twikey\Twikey;
 
-$mandate = Twikey::shipment();
+$invite = $twikey::invite();
 
-$mandate->reference = 'Appstract';
+$invite->ct = 1234;
+$invite->l = 'nl';
+$invite->iban = 'GB33BUKB20201555555555';
+$invite->bic = 'BUKBGB22';
+$invite->email = 'test@example.com';
+$invite->reminderDays = 14;
 
-$mandate->save();
+$invite->save();
+
+var_dump($invite->toArray());
+
 ```
 
-## Testing
+Find a mandate:
+```php
 
-``` bash
-composer test
+$mandate = $twikey::mandate()->find('ABC5');
+
+var_dump($mandate->toArray());
+
 ```
+
+
+Create a transaction:
+```php
+
+$transaction = $twikey::transaction();
+$transaction->mndtId = 'ABC5';
+$transaction->message = 'Invoice 1234';
+$transaction->amount = '84.32';
+
+$transaction->save();
+
+var_dump($transaction->toArray());
+
+```
+
 
 ## Contributing
 
